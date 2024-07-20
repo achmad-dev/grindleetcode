@@ -14,3 +14,8 @@ func MoveZeroBruteForce(nums []int) []int {
 	}
 	return nums
 }
+
+func MoveZeroOptimal(nums []int) []int {
+	// TODO add add another solution
+	return nums
+}
