@@ -34,27 +34,16 @@ n == grid[i].length
 3 <= m, n <= 150
 0 <= grid[i][j] <= 106
 */
-/// Solution: brute force
+/// Solution:more brute force
 func MaxSum(grid [][]int) int {
 	max := 0
-	i := 0
-	for i+3 <= len(grid) {
-		top := sumArrInt(grid[i][0 : 0+3])
-		mid := grid[i+1][1]
-		btm := sumArrInt(grid[i+2][0 : 0+3])
-		sum := top + mid + btm
-		if max < sum {
-			max = sum
+	for i := 1; i < len(grid)-1; i++ {
+		for j := 1; j < len(grid[0])-1; j++ {
+			sum := grid[i][j] + grid[i-1][j] + grid[i+1][j] + grid[i-1][j-1] + grid[i-1][j+1] + grid[i+1][j-1] + grid[i+1][j+1]
+			if sum > max {
+				max = sum
+			}
 		}
-		i++
 	}
 	return max
-}
-
-func sumArrInt(arr []int) int {
-	sum := 0
-	for _, val := range arr {
-		sum += val
-	}
-	return sum
 }
