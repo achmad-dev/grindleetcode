@@ -7,8 +7,8 @@ import (
 )
 
 type SockPairsTestCase struct {
-	N        int32
 	Ar       []int32
+	N        int32
 	Expected int32
 }
 
